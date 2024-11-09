@@ -13,7 +13,7 @@ variable "location" {
 }
 
 variable "app_service_name" {
-  default = "exampleAppService"
+  default = "richdizzcairatestforyo"
 }
 
 variable "app_service_plan_name" {
