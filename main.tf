@@ -17,8 +17,8 @@ variable "location" {
 
 # Define locals to compute names based on prefix
 locals {
-  app_service_name       = "${var.prefix}-asrichdizz"
-  app_service_plan_name  = "${var.prefix}-asprichdizz"
+  app_service_name       = "${var.prefix}asrichdizz"
+  app_service_plan_name  = "${var.prefix}asprichdizz"
 }
 
 # Create a resource group
