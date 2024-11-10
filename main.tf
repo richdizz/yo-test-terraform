@@ -41,7 +41,6 @@ resource "azurerm_app_service" "example" {
     "WEBSITE_RUN_FROM_PACKAGE" = "1" # Optional: Use if deploying from a package (like a ZIP file)
     "WEBSITE_NODE_DEFAULT_VERSION" = "~18"
     "WEBSITE_STACK"                = "node"
-    "SCM_DO_BUILD_DURING_DEPLOYMENT" = true
   }
 }
 
