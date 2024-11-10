@@ -1,11 +1,15 @@
 # Define the Azure provider
 provider "azurerm" {
   features {}
+  prefix = var.prefix
+  subscription_id = var.subscription_id
 }
 
 # Define variables for resource group and location
+variable "prefix" {}
+variable "subscription_id" {}
 variable "resource_group_name" {
-  default = "exampleResourceGroup"
+  default = "richdizz_yotest"
 }
 
 variable "location" {
@@ -13,11 +17,11 @@ variable "location" {
 }
 
 variable "app_service_name" {
-  default = "richdizzcairatestforyo"
+  default = var.prefix + "_as_richdizz"
 }
 
 variable "app_service_plan_name" {
-  default = "exampleAppServicePlan"
+  default = var.prefix + "_asp_richdizz"
 }
 
 # Create a resource group
