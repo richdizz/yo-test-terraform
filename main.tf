@@ -36,15 +36,11 @@ resource "azurerm_app_service" "example" {
   resource_group_name = azurerm_resource_group.example.name
   app_service_plan_id = azurerm_app_service_plan.example.id
 
-  # Specify the runtime stack (Node.js 18 on Linux)
-  site_config {
-    node_version = "18-lts"  # Set the runtime stack to Node.js 18 on Windows
-  }
-
   # Define app settings (environment variables)
   app_settings = {
     "WEBSITE_RUN_FROM_PACKAGE" = "1" # Optional: Use if deploying from a package (like a ZIP file)
     "PORT" = "8080"
+    "WEBSITE_NODE_DEFAULT_VERSION" = "18-lts"
   }
 }
 
