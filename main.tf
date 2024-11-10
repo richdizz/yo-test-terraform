@@ -14,7 +14,7 @@ locals {
 resource "azurerm_resource_group" "example" {
   name     = var.resource_group_name
   location = var.location
-}
+} 
 
 # Create an App Service Plan
 resource "azurerm_app_service_plan" "example" {
