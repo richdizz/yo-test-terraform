@@ -4,17 +4,6 @@ provider "azurerm" {
   subscription_id = var.subscription_id
 }
 
-# Define variables for resource group and location
-variable "prefix" {}
-variable "subscription_id" {}
-variable "resource_group_name" {
-  default = "richdizz-yotest"
-}
-
-variable "location" {
-  default = "eastus"
-}
-
 # Define locals to compute names based on prefix
 locals {
   app_service_name       = "${var.prefix}asrichdizz"
