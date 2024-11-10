@@ -6,13 +6,14 @@ provider "azurerm" {
 
 # Define locals to compute names based on prefix
 locals {
+  resource_group_name    = "${var.prefix}rgrichdizz"
   app_service_name       = "${var.prefix}asrichdizz"
   app_service_plan_name  = "${var.prefix}asprichdizz"
 }
 
 # Create a resource group
 resource "azurerm_resource_group" "example" {
-  name     = var.resource_group_name
+  name     = local.resource_group_name
   location = var.location
 } 
 
