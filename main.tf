@@ -27,7 +27,7 @@ resource "azurerm_app_service_plan" "example" {
     tier = "Basic"
     size = "B1" # Choose based on your needs (B1 is low-cost)
   }
-}
+} 
 
 # Create an App Service (Web App)
 resource "azurerm_app_service" "example" {
