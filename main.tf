@@ -23,6 +23,7 @@ resource "azurerm_app_service_plan" "example" {
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
   kind                = "Linux"
+  reserved            = true
   sku {
     tier = "Basic"
     size = "B1" # Choose based on your needs (B1 is low-cost)
