@@ -22,8 +22,7 @@ resource "azurerm_app_service_plan" "example" {
   name                = local.app_service_plan_name
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
-  kind                = "Linux"
-  reserved            = true
+  kind                = "Windows"
   sku {
     tier = "Basic"
     size = "B1" # Choose based on your needs (B1 is low-cost)
@@ -39,7 +38,7 @@ resource "azurerm_app_service" "example" {
 
   # Specify the runtime stack (Node.js 18 on Linux)
   site_config {
-    linux_fx_version = "NODE|18"  # Set the runtime stack to Node.js 18 on Linux
+    node_version = "18-lts"  # Set the runtime stack to Node.js 18 on Windows
   }
 
   # Define app settings (environment variables)
