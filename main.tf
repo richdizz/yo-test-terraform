@@ -45,6 +45,7 @@ resource "azurerm_app_service" "example" {
   # Define app settings (environment variables)
   app_settings = {
     "WEBSITE_RUN_FROM_PACKAGE" = "1" # Optional: Use if deploying from a package (like a ZIP file)
+    "PORT" = "8080"
   }
 }
 
