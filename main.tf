@@ -1,7 +1,6 @@
 # Define the Azure provider
 provider "azurerm" {
   features {}
-  prefix = var.prefix
   subscription_id = var.subscription_id
 }
 
@@ -16,12 +15,10 @@ variable "location" {
   default = "eastus"
 }
 
-variable "app_service_name" {
-  default = var.prefix + "_as_richdizz"
-}
-
-variable "app_service_plan_name" {
-  default = var.prefix + "_asp_richdizz"
+# Define locals to compute names based on prefix
+locals {
+  app_service_name       = "${var.prefix}_as_richdizz"
+  app_service_plan_name  = "${var.prefix}_asp_richdizz"
 }
 
 # Create a resource group
@@ -32,7 +29,7 @@ resource "azurerm_resource_group" "example" {
 
 # Create an App Service Plan
 resource "azurerm_app_service_plan" "example" {
-  name                = var.app_service_plan_name
+  name                = local.app_service_plan_name
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
   sku {
@@ -43,7 +40,7 @@ resource "azurerm_app_service_plan" "example" {
 
 # Create an App Service (Web App)
 resource "azurerm_app_service" "example" {
-  name                = var.app_service_name
+  name                = local.app_service_name
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
   app_service_plan_id = azurerm_app_service_plan.example.id
