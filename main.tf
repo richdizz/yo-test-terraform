@@ -8,7 +8,7 @@ provider "azurerm" {
 variable "prefix" {}
 variable "subscription_id" {}
 variable "resource_group_name" {
-  default = "richdizz_yotest"
+  default = "richdizz-yotest"
 }
 
 variable "location" {
@@ -17,8 +17,8 @@ variable "location" {
 
 # Define locals to compute names based on prefix
 locals {
-  app_service_name       = "${var.prefix}_as_richdizz"
-  app_service_plan_name  = "${var.prefix}_asp_richdizz"
+  app_service_name       = "${var.prefix}-asrichdizz"
+  app_service_plan_name  = "${var.prefix}-asprichdizz"
 }
 
 # Create a resource group
