@@ -36,14 +36,11 @@ resource "azurerm_app_service" "example" {
   resource_group_name = azurerm_resource_group.example.name
   app_service_plan_id = azurerm_app_service_plan.example.id
 
-  application_stack {
-    node_version = "18-lts" # Specify the Node.js version using the application stack
-  }
-
   # Define app settings (environment variables)
   app_settings = {
     "WEBSITE_RUN_FROM_PACKAGE" = "1" # Optional: Use if deploying from a package (like a ZIP file)
     "WEBSITE_NODE_DEFAULT_VERSION" = "~18"
+    "WEBSITE_STACK"                = "node"
   }
 }
 
